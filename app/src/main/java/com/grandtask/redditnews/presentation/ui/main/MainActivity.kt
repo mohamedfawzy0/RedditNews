@@ -11,7 +11,6 @@ import com.grandtask.redditnews.R
 import com.grandtask.redditnews.databinding.ActivityMainBinding
 import com.grandtask.redditnews.presentation.adapter.ArticleAdapter
 import com.grandtask.redditnews.presentation.model.Children
-import com.grandtask.redditnews.presentation.model.DataItem
 import com.grandtask.redditnews.presentation.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private var articleList = mutableListOf<Children>()
-    private val adapter: ArticleAdapter by lazy { ArticleAdapter(this, articleList) }
+    private val adapter: ArticleAdapter by lazy { ArticleAdapter(articleList) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

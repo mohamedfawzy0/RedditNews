@@ -1,6 +1,5 @@
 package com.grandtask.redditnews.presentation.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import com.grandtask.redditnews.presentation.model.DataItem
 import com.grandtask.redditnews.presentation.ui.article_details.ArticleDetailsActivity
 
 
-class ArticleAdapter(var context: Context, var articleList: MutableList<Children>) :
+class ArticleAdapter(var articleList: MutableList<Children>) :
     RecyclerView.Adapter<ArticleAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -43,9 +42,9 @@ class ArticleAdapter(var context: Context, var articleList: MutableList<Children
                 .into(binding.articleImage)
 
             itemView.setOnClickListener {
-                val intent = Intent(context, ArticleDetailsActivity::class.java)
+                val intent = Intent(it.context, ArticleDetailsActivity::class.java)
                 intent.putExtra(EXTRA_ARTICLE, item)
-                context.startActivity(intent)
+                it.context.startActivity(intent)
             }
         }
     }
